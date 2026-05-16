@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>쾌변 타이머</title>
     <link rel="stylesheet" href="style.css">
+    
+    <link rel="manifest" href="./manifest.json">
+    
+    <meta name="theme-color" content="#ffab91">
+    <link rel="apple-touch-icon" href="./icon-192.png">
+
+    <script>
+        // PWA 서비스 워커 등록 스크립트
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(reg => console.log('쾌변 타이머 PWA 서비스 워커 등록 완료!'))
+                    .catch(err => console.log('PWA 등록 실패:', err));
+            });
+        }
+    </script>
+
+    
+    
 </head>
 <body>
     <div class="app-container">

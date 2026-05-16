@@ -1,0 +1,21 @@
+{
+  "name": "쾌변 타이머",
+  "short_name": "쾌변앱",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fdf6ec",
+  "theme_color": "#ffab91",
+  "description": "건강한 배변 습관을 위한 3분 뽀모도로 타이머",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
