@@ -1,0 +1,63 @@
+body { background: #fdf6ec; margin: 0; font-family: 'Apple SD Gothic Neo', sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.app-container { width: 100%; max-width: 380px; height: 85vh; background: white; border-radius: 30px; position: relative; overflow: hidden; border: 3px solid #333; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.screen { padding: 15px; text-align: center; height: 100%; box-sizing: border-box; overflow-y: auto; }
+
+/* 헤더 레이아웃: 닉네임 왼쪽, 로그아웃 오른쪽 */
+.main-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 5px; margin-bottom: 20px; }
+.user-tag { cursor: pointer; background: #eee; padding: 5px 10px; border-radius: 10px; border: 2px solid #333; font-size: 0.85rem; font-weight: bold; }
+.user-dropdown { position: absolute; top: 55px; left: 15px; background: white; border: 2px solid #333; border-radius: 10px; z-index: 100; box-shadow: 4px 4px 0 #333; }
+.user-dropdown button { display: block; width: 100%; padding: 10px; border: none; background: none; border-bottom: 1px solid #eee; cursor: pointer; text-align: left; font-size: 0.8rem; }
+.small-text { font-size: 0.75rem !important; padding: 5px 10px !important; }
+
+/* 중앙 콘텐츠 영역: 달력이 이미지 바로 위 */
+.main-content-area { display: flex; flex-direction: column; align-items: center; margin-top: 10px; }
+.cal-btn-wrapper { margin-bottom: 10px; } /* 이미지 바로 위 간격 */
+
+/* 이미지 크기: 타이머 너비와 동일하게 조정 */
+.cat-box { width: 100%; display: flex; justify-content: center; align-items: center; margin-bottom: 5px; }
+.cat-box img { width: 330px; /* 타이머 폰트 크기 4rem 기준 너비 최적화 */ height: 150px; object-fit: contain; }
+
+/* 타이머 디자인 */
+#timer { font-size: 4rem; font-weight: 900; font-family: monospace; margin: 10px 0; color: #333; letter-spacing: -2px; }
+
+/* 버튼 및 기타 UI */
+.btn-3d { border: 2px solid #333; border-radius: 12px; cursor: pointer; font-weight: bold; position: relative; top: 0; transition: 0.1s; }
+.btn-3d:active { top: 3px; box-shadow: none !important; }
+.btn-mint { background: #b2dfdb; color: #004d40; width: 100%; padding: 12px; box-shadow: 0 4px #333; }
+.btn-orange { background: #ffccbc; color: #5d4037; padding: 10px; box-shadow: 0 4px #333; }
+.btn-blue { background: #e1f5fe; color: #0277bd; padding: 8px 15px; box-shadow: 0 4px #333; }
+.btn-grey { background: #f5f5f5; color: #666; box-shadow: 0 3px #333; }
+.btn-start { background: #c8e6c9; color: #2e7d32; width: 100%; padding: 15px; font-size: 1.3rem; box-shadow: 0 6px #333; margin-top: 10px; }
+.btn-stop { background: #ffcdd2; color: #c62828; }
+
+/* 상태 선택 버튼 */
+.status-selector { display: flex; justify-content: center; gap: 4px; margin: 10px 0; }
+.btn-type { border: 2px solid #333; border-radius: 8px; padding: 5px 8px; font-size: 0.7rem; cursor: pointer; box-shadow: 0 3px #333; }
+.btn-type.yellow { background: #fdd835; }
+.btn-type.brown { background: #8d6e63; color: white; }
+.btn-type.purple { background: #ba68c8; color: white; }
+.btn-type.red { background: #f44336; color: white; }
+.btn-type.active { transform: translateY(2px); box-shadow: none; filter: brightness(0.8); }
+
+/* 달력 레이아웃 */
+.calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.grid-container { display: grid; grid-template-columns: repeat(7, 1fr); grid-auto-rows: 55px; gap: 1px; background: #333; border: 2px solid #333; }
+.calendar-day { background: white; display: flex; flex-direction: column; padding: 2px; position: relative; overflow: hidden; }
+.calendar-day.header { height: 25px; background: #eee; font-size: 0.7rem; font-weight: bold; display: flex; align-items: center; justify-content: center; }
+.date-num { font-size: 0.6rem; font-weight: bold; text-align: left; }
+.dot-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; justify-items: center; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; border: 1px solid #333; }
+.status-dot.success { background: #81c784; }
+.status-dot.yellow { background: #fdd835; }
+.status-dot.brown { background: #8d6e63; }
+.status-dot.purple { background: #ba68c8; }
+.status-dot.red { background: #f44336; }
+.fail-x { background: none !important; border: none !important; color: black; font-size: 10px; font-weight: bold; display: flex; align-items: center; justify-content: center; height: 7px; }
+
+/* 폼 및 모달 */
+.auth-form { text-align: left; padding: 0 10px; }
+.input-group { margin-bottom: 10px; }
+.input-group label { display: block; font-weight: bold; font-size: 0.9rem; margin-bottom: 4px; }
+.auth-input { width: 100%; padding: 10px; border: 2px solid #333; border-radius: 10px; box-sizing: border-box; }
+.modal { position: absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); display:none; align-items:center; justify-content:center; z-index: 100; }
+.modal-content { background:white; padding:15px; border-radius:20px; border:3px solid #333; width: 85%; max-height: 70%; overflow-y: auto; }
